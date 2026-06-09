@@ -14,6 +14,8 @@
   --border2: rgba(0,212,255,0.25);
   --c4: #f0b040;
   --c5: #40c080;
+  --sl: #94a3b8;
+  --sl-border: rgba(148,163,184,0.4);
   --head: 'Space Grotesk', sans-serif;
   --mono: 'DM Mono', monospace;
   --alt: 'Space Mono', monospace;
@@ -61,15 +63,15 @@ nav{
 .hero-pre{font-family:var(--mono);font-size:12px;color:var(--c);letter-spacing:3px;margin-bottom:24px;opacity:0;animation:up 0.5s ease 0.3s forwards;}
 .hero-name{font-family:var(--head);font-size:clamp(88px,15vw,190px);font-weight:700;line-height:0.92;letter-spacing:-4px;color:#fff;opacity:0;animation:up 0.6s ease 0.5s forwards;}
 .hero-name .c{color:var(--c);}
-.hero-sub{font-size:clamp(15px,1.6vw,19px);font-weight:300;color:var(--muted);margin-top:24px;max-width:480px;line-height:1.8;letter-spacing:0.2px;opacity:0;animation:up 0.6s ease 0.7s forwards;}
+.hero-sub{font-size:clamp(15px,1.6vw,19px);font-weight:300;color:#8daebb;margin-top:24px;max-width:480px;line-height:1.8;letter-spacing:0.2px;opacity:0;animation:up 0.6s ease 0.7s forwards;}
 .hero-sub strong{color:var(--text);font-weight:500;}
-.hero-actions{display:flex;gap:12px;margin-top:48px;opacity:0;animation:up 0.6s ease 0.9s forwards;}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:48px;opacity:0;animation:up 0.6s ease 0.9s forwards;}
 
 .btn{font-family:var(--mono);font-size:11px;letter-spacing:2px;padding:12px 26px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
 .btn-fill{background:var(--c);color:#07090c;border:none;font-weight:500;}
 .btn-fill:hover{background:#fff;transform:translateY(-2px);}
-.btn-ghost{background:transparent;color:var(--c);border:1px solid var(--border2);}
-.btn-ghost:hover{background:rgba(0,212,255,0.06);transform:translateY(-2px);}
+.btn-ghost{background:rgba(0,212,255,0.06);color:#fff;border:1px solid var(--border2);}
+.btn-ghost:hover{background:rgba(0,212,255,0.15);transform:translateY(-2px);}
 
 section{z-index:1;position:relative;padding:110px 64px;}
 #about{background:var(--bg2);}
@@ -99,8 +101,8 @@ section{z-index:1;position:relative;padding:110px 64px;}
 
 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);}
 .proj-card{background:var(--bg2);padding:44px 40px;position:relative;overflow:hidden;transition:background 0.3s,box-shadow 0.3s;}
-.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--c);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1);}
-.proj-card:hover{background:var(--bg);box-shadow:0 0 0 1px var(--border2);}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--sl);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.22,1,0.36,1);}
+.proj-card:hover{background:#0f1620;box-shadow:0 0 0 1px var(--sl-border);}
 .proj-card:hover::before{transform:scaleX(1);}
 .proj-tag{font-family:var(--mono);font-size:10px;letter-spacing:2.5px;color:var(--muted);margin-bottom:18px;text-transform:uppercase;display:flex;align-items:center;gap:10px;}
 .proj-wip{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--c2);border:1px solid rgba(255,77,109,0.3);padding:2px 8px;}
@@ -116,7 +118,7 @@ section{z-index:1;position:relative;padding:110px 64px;}
 .proj-link{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--c);text-decoration:none;display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;padding:8px 16px;border:1px solid rgba(0,212,255,0.2);transition:all 0.25s;}
 .proj-link.p{color:var(--c3);border-color:rgba(123,94,167,0.2);}
 .proj-link svg{width:14px;height:14px;flex-shrink:0;}
-.proj-link:hover{background:rgba(0,212,255,0.08);border-color:var(--border2);gap:12px;}
+.proj-link:hover{background:rgba(148,163,184,0.1);border-color:var(--sl-border);gap:12px;}
 .proj-link.p:hover{background:rgba(123,94,167,0.08);border-color:rgba(123,94,167,0.35);}
 
 footer{padding:36px 64px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--bg);}
@@ -134,14 +136,40 @@ footer{padding:36px 64px;border-top:1px solid var(--border);display:flex;align-i
 
 @media(max-width:900px){
   nav{padding:16px 24px;}
-  .nav-links{position:fixed;top:0;right:-100%;width:260px;height:100vh;flex-direction:column;background:rgba(7,11,15,0.98);backdrop-filter:blur(20px);padding:80px 32px 32px;gap:24px;transition:right 0.35s cubic-bezier(0.22,1,0.36,1);z-index:99;border-left:1px solid var(--border);display:flex;}
+  .nav-links{position:fixed;top:0;right:-100%;width:280px;height:100vh;flex-direction:column;background:rgba(7,11,15,0.98);backdrop-filter:blur(20px);padding:80px 32px 32px;gap:24px;transition:right 0.35s cubic-bezier(0.22,1,0.36,1);z-index:99;border-left:1px solid var(--border);display:flex;}
   .nav-links.open{right:0;}
   .nav-toggle{display:block;position:relative;z-index:101;}
   #hero{padding:0 24px;}
+  .hero-actions{flex-direction:column;width:100%;}
+  .hero-actions .btn{width:100%;justify-content:center;}
   section{padding:72px 24px;}
   .about-grid{grid-template-columns:1fr;}
+  .skill-item{flex-wrap:wrap;gap:10px;}
   .skill-name{width:120px;}
+  .skill-note{min-width:auto;}
   .proj-grid{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:14px;padding:28px 24px;}
+  footer{flex-direction:column;gap:14px;padding:28px 24px;text-align:center;}
   .proj-card{padding:32px 24px;}
+}
+
+@media(max-width:540px){
+  nav{padding:12px 16px;}
+  .nav-logo{font-size:16px;letter-spacing:3px;}
+  #hero{padding:0 16px;}
+  .hero-name{font-size:clamp(52px,20vw,80px);letter-spacing:-2px;}
+  .hero-sub{font-size:14px;margin-top:18px;}
+  .hero-actions{margin-top:32px;gap:10px;}
+  .hero-actions .btn{padding:10px 20px;font-size:10px;}
+  section{padding:56px 16px;}
+  .s-header{margin-bottom:40px;}
+  .s-title{font-size:clamp(18px,4vw,22px);}
+  .about-grid{gap:40px;}
+  .bio-block{padding-left:20px;}
+  .bio-block p{font-size:12px;}
+  .proj-card{padding:24px 16px;}
+  .proj-name{font-size:17px;}
+  .proj-desc{font-size:13px;}
+  .proj-link{padding:6px 12px;font-size:9px;}
+  footer{padding:24px 16px;gap:10px;}
+  .footer-name,.footer-note{font-size:10px;}
 }
