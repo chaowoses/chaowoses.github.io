@@ -37,9 +37,9 @@ function starLayer(count, spread, size, hue, sat, op) {
     blending: THREE.AdditiveBlending, sizeAttenuation: true, depthWrite: false
   })));
 }
-starLayer(isMobile ? 1500 : 2500, [20, 40], 0.02, 0.58, 0.1, isMobile ? 0.55 : 1);
+starLayer(isMobile ? 1500 : 2500, [20, 40], 0.02, 0.09, 0.15, isMobile ? 0.55 : 1);
 if (!isMobile) {
-  starLayer(800, [10, 22], 0.035, 0.55, 0.2);
+  starLayer(800, [10, 22], 0.035, 0.06, 0.25);
 }
 
 if (!isMobile) {
@@ -56,7 +56,7 @@ if (!isMobile) {
     const z = tkPosA[idx + 2] + (Math.random() - 0.5) * 0.006;
     const l = 1.6 / Math.sqrt(x * x + y * y + z * z);
     tkPts[i * 3] = x * l; tkPts[i * 3 + 1] = y * l; tkPts[i * 3 + 2] = z * l;
-    C.setHSL(0.52 + Math.random() * 0.08, 0.7, 0.35 + Math.random() * 0.3);
+    C.setHSL(0.08 + Math.random() * 0.05, 0.75, 0.4 + Math.random() * 0.3);
     tkCol[i * 3] = C.r; tkCol[i * 3 + 1] = C.g; tkCol[i * 3 + 2] = C.b;
   }
   const tkMesh = new THREE.Points(
@@ -77,7 +77,7 @@ if (!isMobile) {
     sp[i * 3] = r * Math.sin(ph) * Math.cos(th);
     sp[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th);
     sp[i * 3 + 2] = r * Math.cos(ph);
-    C.setHSL(0.54, 0.8, 0.2 + Math.random() * 0.3);
+    C.setHSL(0.02, 0.75, 0.3 + Math.random() * 0.3);
     sc[i * 3] = C.r; sc[i * 3 + 1] = C.g; sc[i * 3 + 2] = C.b;
   }
   const core = new THREE.Points(
@@ -109,13 +109,13 @@ if (!isMobile) {
         blending: THREE.AdditiveBlending, sizeAttenuation: true, depthWrite: false })
     );
   }
-  const r1 = ring(2.3, 1200, 0.035, 0.56, 0.06, 0.5);
+  const r1 = ring(2.3, 1200, 0.035, 0.09, 0.06, 0.5);
   r1.rotation.x = 0.4;
   scene.add(r1);
-  const r2 = ring(3.0, 900, 0.03, 0.52, 0.08, 0.35);
+  const r2 = ring(3.0, 900, 0.03, 0.05, 0.08, 0.35);
   r2.rotation.x = -0.3; r2.rotation.z = 0.5;
   scene.add(r2);
-  const r3 = ring(3.8, 700, 0.025, 0.50, 0.1, 0.2);
+  const r3 = ring(3.8, 700, 0.025, 0.01, 0.1, 0.2);
   r3.rotation.x = 0.7; r3.rotation.z = -0.3;
   scene.add(r3);
 
@@ -126,7 +126,7 @@ if (!isMobile) {
     dp[i * 3] = Math.cos(a) * rad;
     dp[i * 3 + 1] = (Math.random() - 0.5) * 0.6;
     dp[i * 3 + 2] = Math.sin(a) * rad;
-    C.setHSL(0.54, 0.4, 0.1 + Math.random() * 0.15);
+    C.setHSL(0.07, 0.45, 0.12 + Math.random() * 0.15);
     dc[i * 3] = C.r; dc[i * 3 + 1] = C.g; dc[i * 3 + 2] = C.b;
   }
   const dust = new THREE.Points(
@@ -149,7 +149,7 @@ if (!isMobile) {
       p[i * 3] = r * Math.sin(ph) * Math.cos(th);
       p[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th);
       p[i * 3 + 2] = r * Math.cos(ph);
-      C.setHSL(0.56 + Math.random() * 0.08, 0.7, 0.4 + Math.random() * 0.3);
+      C.setHSL(0.08 + Math.random() * 0.06, 0.72, 0.42 + Math.random() * 0.3);
       c[i * 3] = C.r; c[i * 3 + 1] = C.g; c[i * 3 + 2] = C.b;
     }
     const mesh = new THREE.Points(
@@ -175,7 +175,7 @@ if (!isMobile) {
     sp2[i * 3] = Math.cos(a) * rad + (Math.random() - 0.5) * 0.03;
     sp2[i * 3 + 1] = Math.sin(a * 0.7) * 0.6 + (Math.random() - 0.5) * 0.03;
     sp2[i * 3 + 2] = Math.sin(a) * rad + (Math.random() - 0.5) * 0.03;
-    C.setHSL(0.50 + t * 0.12, 0.6, 0.25 + Math.random() * 0.25);
+    C.setHSL(0.97 + t * 0.12, 0.65, 0.3 + Math.random() * 0.25);
     sc2[i * 3] = C.r; sc2[i * 3 + 1] = C.g; sc2[i * 3 + 2] = C.b;
   }
   const stream = new THREE.Points(
@@ -266,8 +266,8 @@ if (!isMobile) {
         blending: THREE.AdditiveBlending, sizeAttenuation: true, depthWrite: false })
     ));
   }
-  cloud(600, [1.8, 3.0], 0.04, 0.56, 0.4, 0.2);
-  cloud(400, [2.5, 4.0], 0.03, 0.50, 0.3, 0.12);
+  cloud(600, [1.8, 3.0], 0.04, 0.08, 0.45, 0.2);
+  cloud(400, [2.5, 4.0], 0.03, 0.02, 0.35, 0.12);
 
   // ── orbiting clusters (mobile) ──
   const mclusters = [];
@@ -280,7 +280,7 @@ if (!isMobile) {
       p[i * 3] = r * Math.sin(ph) * Math.cos(th);
       p[i * 3 + 1] = r * Math.sin(ph) * Math.sin(th);
       p[i * 3 + 2] = r * Math.cos(ph);
-      C.setHSL(0.56 + Math.random() * 0.08, 0.6, 0.3 + Math.random() * 0.3);
+      C.setHSL(0.08 + Math.random() * 0.06, 0.65, 0.35 + Math.random() * 0.3);
       c[i * 3] = C.r; c[i * 3 + 1] = C.g; c[i * 3 + 2] = C.b;
     }
     const mesh = new THREE.Points(
