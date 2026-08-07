@@ -1,4 +1,4 @@
-# [chaowoses.github.io](https://chaowoses.github.io)
+# [chaowoses.dev](https://chaowoses.dev)
 
 Personal landing page. *Circuits and objections.*
 
