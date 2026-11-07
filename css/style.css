@@ -304,6 +304,17 @@ html:not(.has3d) .plate{height:auto;padding-bottom:90px;}
   nav{z-index:60;}
   .nav-links{height:100dvh;}
 }
+.nav-right{display:flex;align-items:center;gap:6px;}
+.night-toggle{
+  display:none;place-items:center;width:38px;height:38px;border:1px solid transparent;border-radius:2px;
+  background:none;color:rgba(243,232,210,.78);cursor:pointer;transition:color .25s,border-color .25s,background .25s;
+}
+.has3d .night-toggle{display:grid;}
+.night-toggle .ico{width:17px;height:17px;grid-area:1/1;}
+.night-toggle .i-to-day{display:none;}
+.night .night-toggle .i-to-night{display:none;}
+.night .night-toggle .i-to-day{display:block;}
+.night-toggle:hover{color:#fff;background:rgba(243,232,210,.08);border-color:rgba(201,162,77,.45);}
 @media(max-height:560px){
   .docked #dock{bottom:76px;max-height:calc(100vh - 150px);}
 }

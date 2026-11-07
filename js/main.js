@@ -53,6 +53,8 @@ document.addEventListener('click', (e) => {
 prevBtn.addEventListener('click', () => go((court?.current ?? 0) - 1));
 nextBtn.addEventListener('click', () => go((court?.current ?? 0) + 1));
 
+document.getElementById('night-toggle')?.addEventListener('click', () => court?.toggleNight());
+
 addEventListener('keydown', (e) => {
   if (e.altKey || e.ctrlKey || e.metaKey || !court) return;
   if (e.key === 'ArrowRight' || e.key === 'ArrowDown') go(court.current + 1);
