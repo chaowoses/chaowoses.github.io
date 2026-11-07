@@ -994,7 +994,9 @@ export async function createCourtroom({ stage, panels, dock, onStation }) {
     const c = new V3((minX + maxX) / 2, cy / ps.length, cz / ps.length);
     const n = new V3(nx, 0, nz).normalize();
     const fillH = docked ? 0.4 : st.fillH, fillW = docked ? 0.8 : st.fillW;
-    const dist = Math.max(0.9, hMax / (2 * tanV * fillH), (maxX - minX) / (2 * tanH * fillW));
+    // docked: the floating title panel isn't drawn in 3D, so don't back the camera out to fit its width
+    const fitW = !(docked && ps[0].kind === 'float');
+    const dist = Math.max(0.9, hMax / (2 * tanV * fillH), fitW ? (maxX - minX) / (2 * tanH * fillW) : 0);
     return {
       px: c.x + n.x * dist, py: c.y + n.y * dist + st.lift, pz: c.z + n.z * dist,
       tx: c.x, ty: c.y + st.tOff, tz: c.z, fov: st.fov,
